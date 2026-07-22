@@ -65,39 +65,45 @@ explaining the ranking decision with specific numbers.
 
 ## 🏗️ Architecture
 
+```text
 Geopolitical Signals (mock → real API-ready)
-↓
-┌─────────────────────────────┐
-│ Geopolitical Risk Agent │ LangGraph + Groq LLaMA-3.3-70B
-│ (LangGraph 4-node graph) │
-└──────────────┬──────────────┘
-↓ corridor risk scores
-┌─────────────────────────────┐
-│ SQLite Database │ SQLAlchemy ORM
-│ corridors | suppliers │
-│ signals | scenarios | recs │
-└──────────────┬──────────────┘
-↓
-┌─────────────────────────────┐
-│ Hormuz Scenario Agent │ Deterministic math model
-│ (LangGraph 4-node graph) │ + Groq ministerial briefing
-└──────────────┬──────────────┘
-↓ import_gap_mbd
-┌─────────────────────────────┐
-│ Procurement Orchestrator │ Composite scorer
-│ (LangGraph 5-node graph) │ + Groq ranking rationale
-└──────────────┬──────────────┘
-↓
-┌─────────────────────────────┐
-│ FastAPI REST Layer │ /api/agents/full-pipeline/run
-└──────────────┬──────────────┘
-↓
-┌─────────────────────────────┐
-│ React Dashboard │ Vite + Tailwind + Recharts
-│ Risk | Scenario | Procure │
-│ + Agent Reasoning Traces │
-└─────────────────────────────┘
-
+                         │
+                         ▼
+┌────────────────────────────────────────────────────────────┐
+│ Geopolitical Risk Agent                                    │
+│ LangGraph 4-node graph · Groq LLaMA-3.3-70B               │
+└────────────────────────────┬───────────────────────────────┘
+                             │ corridor risk scores
+                             ▼
+┌────────────────────────────────────────────────────────────┐
+│ SQLite Database · SQLAlchemy ORM                           │
+│ corridors · suppliers · signals · scenarios · recs         │
+└────────────────────────────┬───────────────────────────────┘
+                             │
+                             ▼
+┌────────────────────────────────────────────────────────────┐
+│ Hormuz Scenario Agent                                      │
+│ LangGraph 4-node graph · deterministic model · Groq brief  │
+└────────────────────────────┬───────────────────────────────┘
+                             │ import_gap_mbd
+                             ▼
+┌────────────────────────────────────────────────────────────┐
+│ Procurement Orchestrator                                   │
+│ LangGraph 5-node graph · composite scorer · Groq rationale │
+└────────────────────────────┬───────────────────────────────┘
+                             │
+                             ▼
+┌────────────────────────────────────────────────────────────┐
+│ FastAPI REST Layer                                         │
+│ POST /api/agents/full-pipeline/run                         │
+└────────────────────────────┬───────────────────────────────┘
+                             │
+                             ▼
+┌────────────────────────────────────────────────────────────┐
+│ React Dashboard · Vite · Tailwind · Recharts               │
+│ Risk · Scenario · Procurement · Agent Reasoning Traces     │
+└────────────────────────────────────────────────────────────┘
+```
 
 ---
 
