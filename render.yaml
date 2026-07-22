@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: energyshield-backend
+    env: python
+    buildCommand: cd backend && pip install -r requirements.txt && python seed.py
+    startCommand: cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: PYTHON_VERSION
+        value: 3.11.0
+
+  - type: static
+    name: energyshield-frontend
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        sync: false

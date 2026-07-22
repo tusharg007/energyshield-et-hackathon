@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.env
+energyshield.db
+node_modules/
+dist/
+.venv/
