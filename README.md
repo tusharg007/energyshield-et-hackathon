@@ -257,36 +257,37 @@ MoPNG, IEA, McKinsey Energy Practice, PPAC India.
 
 ## 📁 Project Structure
 
+```text
 energyshield/
 ├── backend/
-│ ├── main.py # FastAPI app + all endpoints
-│ ├── database.py # SQLAlchemy engine + session
-│ ├── models.py # ORM models (5 tables)
-│ ├── schemas.py # Pydantic schemas
-│ ├── seed.py # DB initialization + seed data
-│ ├── agents/
-│ │ ├── risk_agent.py # Geopolitical Risk Agent
-│ │ ├── scenario_agent.py # Hormuz Scenario Modeller
-│ │ └── procurement_agent.py # Procurement Orchestrator
-│ ├── requirements.txt
-│ └── .env.example
+│   ├── main.py                 # FastAPI app + all endpoints
+│   ├── database.py             # SQLAlchemy engine + session
+│   ├── models.py               # ORM models (5 tables)
+│   ├── schemas.py              # Pydantic schemas
+│   ├── seed.py                 # DB initialization + seed data
+│   ├── agents/
+│   │   ├── risk_agent.py       # Geopolitical Risk Agent
+│   │   ├── scenario_agent.py   # Hormuz Scenario Modeller
+│   │   └── procurement_agent.py # Procurement Orchestrator
+│   ├── requirements.txt
+│   └── .env.example
 ├── frontend/
-│ ├── src/
-│ │ ├── App.jsx # Main app + state management
-│ │ ├── config.js # API base URL config
-│ │ └── components/
-│ │ ├── Header.jsx
-│ │ ├── ControlPanel.jsx
-│ │ ├── RiskCorridorPanel.jsx
-│ │ ├── ScenarioPanel.jsx
-│ │ ├── ProcurementTable.jsx
-│ │ └── ReasoningTrace.jsx
-│ ├── package.json
-│ └── vite.config.js
-├── render.yaml # Render deployment config
-├── SUBMISSION.md # Hackathon submission document
-└── README.md # This file
-
+│   ├── src/
+│   │   ├── App.jsx             # Main app + state management
+│   │   ├── config.js           # API base URL config
+│   │   └── components/
+│   │       ├── Header.jsx
+│   │       ├── ControlPanel.jsx
+│   │       ├── RiskCorridorPanel.jsx
+│   │       ├── ScenarioPanel.jsx
+│   │       ├── ProcurementTable.jsx
+│   │       └── ReasoningTrace.jsx
+│   ├── package.json
+│   └── vite.config.js
+├── render.yaml                 # Render deployment config
+├── SUBMISSION.md               # Hackathon submission document
+└── README.md                   # This file
+```
 
 ---
 
